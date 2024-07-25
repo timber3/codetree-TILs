@@ -8,7 +8,7 @@ public class Main {
     static int n, m, result;
     static int[][] map;
     static boolean[][] visited;
-    static int[] dx = {0,1,0,1};
+    static int[] dx = {0,1,0,-1};
     static int[] dy = {1,0,-1,0};
 
     public static void main(String[] args) throws Exception {
