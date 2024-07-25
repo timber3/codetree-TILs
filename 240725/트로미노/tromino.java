@@ -8,8 +8,8 @@ public class Main {
     static int n, m, result;
     static int[][] map;
     static boolean[][] visited;
-    static int[] dx = {0,1,0};
-    static int[] dy = {1,0,-1};
+    static int[] dx = {0,1,0,1};
+    static int[] dy = {1,0,-1,0};
 
     public static void main(String[] args) throws Exception {
         st = new StringTokenizer(br.readLine());
@@ -37,29 +37,25 @@ public class Main {
         System.out.println(result);
     }
 
-    static void dfs(int cur, int sum, int i , int j) {
+    static void dfs(int cur, int sum, int x , int y) {
         if( cur == 2 ) {
             if(sum > result) {
                 result = sum;
             }
             return;
         }
-        if ( i+1 < n && !visited[i+1][j]) {
-            visited[i+1][j] = true;
-            dfs(cur + 1, sum + map[i+1][j] , i+1, j);
-            visited[i+1][j] = false;
-        }
-        if ( j+1 < m && !visited[i][j+1]) {
-            visited[i][j+1] = true;
-            dfs(cur + 1, sum + map[i][j+1] , i, j+1);
-            visited[i][j+1] = false;
-        }
-        if ( j-1 >= 0 && !visited[i][j-1]) {
-            visited[i][j-1] = true;
-            dfs(cur + 1, sum + map[i][j-1] , i, j-1);
-            visited[i][j-1] = false;
+        
+        for (int i = 0 ; i < 4 ; i ++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
 
+            if (nx < 0 || ny < 0 || nx >= n || ny >= m) continue;
+
+            if (!visited[nx][ny]) {
+                visited[nx][ny] = true;
+                dfs(cur+1, sum + map[nx][ny], nx, ny);
+                visited[nx][ny] = false;
+            }
         }
-            
     }
 }
