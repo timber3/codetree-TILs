@@ -49,13 +49,13 @@ public class Main {
             int nx = x + dx[i];
             int ny = y + dy[i];
 
-            if (nx < 0 || ny < 0 || nx >= n || ny >= m) continue;
+            if(nx < 0 || ny < 0 || nx >= n || ny >= m || visited[nx][ny]) continue;
 
-            if (!visited[nx][ny]) {
-                visited[nx][ny] = true;
-                dfs(cur+1, sum + map[nx][ny], nx, ny);
-                visited[nx][ny] = false;
-            }
+            
+            visited[nx][ny] = true;
+            dfs(cur+1, sum + map[nx][ny], nx, ny);
+            visited[nx][ny] = false;
+            
         }
     }
 }
