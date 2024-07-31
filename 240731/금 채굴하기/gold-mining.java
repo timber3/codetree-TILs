@@ -35,6 +35,9 @@ public class Main {
 
             for (int j = 0 ; j < n ; j ++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
+                if (map[i][j] == 1) {
+                    result = 1;
+                }
             }
         }
 
