@@ -35,7 +35,7 @@ public class Main {
 
             for (int j = 0 ; j < n ; j ++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
-                if (map[i][j] == 1) {
+                if (map[i][j] == 1 && result != 1) {
                     result = 1;
                 }
             }
@@ -70,7 +70,7 @@ public class Main {
         q.add(new Node(x, y));
 
         while(!q.isEmpty()) {
-            Node cur = q.pop();
+            Node cur = q.poll();
             int cx = cur.x;
             int cy = cur.y;
 
@@ -78,7 +78,7 @@ public class Main {
                 int nx = cx + dx[i];
                 int ny = cy + dy[i];
 
-                if (nx < 0 || ny < 0 || nx >= n || ny >= n || visited[nx][ny]>= 0) continue;
+                if (nx < 0 || ny < 0 || nx >= n || ny >= n || visited[nx][ny] != -1) continue;
 
                 if (visited[cx][cy] < k && visited[nx][ny] == -1) {
                     visited[nx][ny] = visited[cx][cy] + 1;
@@ -86,10 +86,11 @@ public class Main {
                 }
             }
         }
-
-        int cost = k * k + (k + 1) * (k + 1);
+ 
+        int cost = k * k + ((k + 1) * (k + 1));
         int gold = 0;
-        // 지정된 공간 만큼 금 캐기
+
+        // 채굴하는 격자에서 금 찾기
         for (int i = 0 ; i < n ; i ++) {
             for (int j = 0 ; j < n ; j ++) {
                 if (visited[i][j] >= 0) {
@@ -98,9 +99,9 @@ public class Main {
                     }
                 }
             }
-        }
+        } 
 
-        if (gold > result && (gold * m) - cost > 0) {
+        if (gold > result && (gold * m) - cost >= 0) {
             result = gold;
         }   
     }
