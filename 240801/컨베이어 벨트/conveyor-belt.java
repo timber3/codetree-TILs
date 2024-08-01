@@ -16,6 +16,8 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         t = Integer.parseInt(st.nextToken());
 
+        t = t % (2*n);
+
         st = new StringTokenizer(br.readLine());
         for (int i = 0 ; i < n ; i ++) {
             int v = Integer.parseInt(st.nextToken());
