@@ -39,15 +39,15 @@ public class Main {
             q3.addFirst(q2.pollLast());
         }
 
-        for(int i = 0 ; i < 3 ; i ++) {
+        for(int i = 0 ; i < n ; i ++) {
             System.out.printf("%d ", q1.poll());
         }
         System.out.println();
-        for(int i = 0 ; i < 3 ; i ++) {
+        for(int i = 0 ; i < n ; i ++) {
             System.out.printf("%d ", q2.poll());
         }
         System.out.println();
-        for(int i = 0 ; i < 3 ; i ++) {
+        for(int i = 0 ; i < n ; i ++) {
             System.out.printf("%d ", q3.poll());
         }
     }
