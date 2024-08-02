@@ -34,6 +34,7 @@ public class Main {
             char dir = st.nextToken().charAt(0);
 
             windBlow(row, dir);
+            blowed = new boolean[n];
         }
 
         for (int i = 0 ; i < n ; i ++) {
