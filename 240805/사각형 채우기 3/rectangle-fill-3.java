@@ -7,7 +7,7 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
 
     static int n;
-    static int[] dp = new int[1001];
+    static long[] dp = new long[1001];
 
     public static void main(String[] args) throws Exception {
 
