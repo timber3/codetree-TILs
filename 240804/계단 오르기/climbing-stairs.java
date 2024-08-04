@@ -13,13 +13,14 @@ public class Main {
         n = Integer.parseInt(br.readLine());
         
         arr = new int[n+1];
+
         if (n >= 2)
             arr[2] = 1;
         if (n >= 3)
             arr[3] = 1;
 
-        for (int i = 5 ; i <= n ; i ++) {
-            arr[i] = arr[i-2] + arr[i-3];
+        for (int i = 4 ; i <= n ; i ++) {
+            arr[i] = (arr[i-2] + arr[i-3])%10007;
         }
 
         System.out.println(arr[n]);
