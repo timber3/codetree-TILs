@@ -15,6 +15,8 @@ public class Main {
 
         arr = new char[size];
 
+        if (size == 1) result = 2;
+
         for (int i = 0 ; i < size ; i ++) {
             arr[i] = str.charAt(i);
         }
