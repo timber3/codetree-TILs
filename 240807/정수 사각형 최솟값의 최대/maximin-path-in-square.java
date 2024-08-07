@@ -24,14 +24,28 @@ public class Main {
             }
         }
 
-        for (int i = 0 ; i <= n ; i ++) {
-            dp[0][i] = Integer.MAX_VALUE;
-            dp[i][0] = Integer.MAX_VALUE;
-        }
+        int min = map[1][1];
 
         for (int i = 1 ; i <= n ; i ++) {
-            for (int j = 1 ; j <= n ; j ++) {
-                dp[i][j] = Math.max(Math.min(map[i][j], dp[i-1][j]) , Math.min(map[i][j],dp[i][j-1]));
+            dp[1][i] = min;
+            if (min > map[1][i]) {
+                min = map[1][i];
+                dp[1][i] = min;
+            }
+        }
+
+        min = map[1][1];
+        for (int i = 1 ; i <= n ; i ++) {
+            dp[i][1] = min;
+            if (min > map[i][1]) {
+                min = map[i][1];
+                dp[i][1] = min;
+            }
+        }
+
+        for (int i = 2 ; i <= n ; i ++) {
+            for (int j = 2 ; j <= n ; j ++) {
+                dp[i][j] = Math.min(Math.max(dp[i-1][j], dp[i][j-1]), map[i][j]);
             }
         }
 
